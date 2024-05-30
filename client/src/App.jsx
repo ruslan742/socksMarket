@@ -9,6 +9,8 @@ import MeetingsPage from './components/pages/MeetingsPage';
 import ProtectedRoute from './components/hoc/ProtectedRoute';
 import AccountPage from './components/pages/AccountPage';
 import GeneratorPage from './components/pages/GeneratorPage';
+import FavoritesPage from './components/pages/FavoritesPage';
+import BasketPage from './components/pages/BasketPage';
 
 function App() {
   const [user, setUser] = useState();
@@ -64,6 +66,14 @@ function App() {
         {
           path: '/meetings',
           element: <MeetingsPage user={user} />,
+        },
+        {
+          path: '/favorites',
+          element: <FavoritesPage user={user} />,
+        },
+        {
+          path: '/basket',
+          element: <BasketPage user={user} />,
         },
         {
           path: '/generator',
