@@ -109,13 +109,16 @@ router.get("/account/basket", verifyAccessToken, async (req, res) => {
 router.post("/account/basket/add", verifyAccessToken, async (req, res) => {
   try {
     console.log(req.body)
+    
     console.log(res.locals)
-    const { color, quantity } = req.body;
-    const existOrders = await Order.find((el) => el.ordersId === ordersId);
+    const { color, image,pattern  } = req.body;
+    const existOrders = await Basket.find((el) => el.ordersId === ordersId);
+    const colorId = (await Color.findOne((el) => el.name === color.name )).id;
+    console.log(colorId)
     if (existOrders) {
       existOrders.quantity += quantity;
     } else {
-      orders.push({ ordersId, quantity });
+      Basket.create({...req.body,userId: res.locals.user?.id});
     }
     res.json(orders);
   } catch (error) {
