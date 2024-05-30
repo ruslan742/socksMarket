@@ -8,6 +8,7 @@ import SignUpPage from './components/pages/SignUpPage';
 import MeetingsPage from './components/pages/MeetingsPage';
 import ProtectedRoute from './components/hoc/ProtectedRoute';
 import AccountPage from './components/pages/AccountPage';
+import GeneratorPage from './components/pages/GeneratorPage';
 
 function App() {
   const [user, setUser] = useState();
@@ -63,6 +64,10 @@ function App() {
         {
           path: '/meetings',
           element: <MeetingsPage user={user} />,
+        },
+        {
+          path: '/generator',
+          element: <GeneratorPage user={user} />,
         },
         {
           path: '/meetings/account',
