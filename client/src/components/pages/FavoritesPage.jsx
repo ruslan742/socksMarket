@@ -1,45 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import axiosInstance from '../../axiosInstance';
-import FvoriteForm from '../ui/FavoriteForm';
+import FavoritesList from '../ui/FavoritesList';
 
-export default function FavoritesPage({user}) {
-  const [favorites, setFavorites] = useState([]);
-
+export default function FavoritesPage() {
+  const [myFavorites, setMyFavorites] = useState([]);
+const isJoined=true
   useEffect(() => {
-    axiosInstance('/favorites').then(({ data }) => setFavorites(data));
+    axiosInstance('/favorites/account').then(({ data }) => setMyFavorites(data));
   }, []);
-console.log(favorites)
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    const formData = Object.fromEntries(new FormData(e.target));
-    const { data } = await axiosInstance.post('/favorites', formData);
-    setFavorites((prev) => [data, ...prev]);
-  };
 
-
-  const joinHandler = async (id) => {
+  const deleteHandler = async (id) => {
     try {
-      console.log(id)
-      const response = await axiosInstance.post(`/favorites/${id}/add`);
-      // console.log(req.params);
-      // console.log(res.locals);
-      // if (response.status === 200) {
-      //   setMeetings((prev) => prev.filter((el) => el.id !== id));
-      // }
+      console.log('eee',id)
+      const response = await axiosInstance.delete(`/favorites/account/${id}/delete`);
+      if (response.status === 200) {
+        setMyFavorites((prev) => prev.filter((el) => el.id !== id));
+      }
     } catch (error) {
       alert(error.response.data.message);
     }
-  };
+  }
+
   return (
-    <div>Hello</div>
-//     <Row className="justify-content-md-center">
-//    <Row>
-//   <MeetingForm submitHandler={submitHandler} />
-// </Row>
-// <Row>
-//         <FavoriteList favorites={favorites}  joinHandler={joinHandler} user={user} />
-//       </Row>
-//     </Row>
+    <Row className="justify-content-md-center">
+      <FavoritesList favorites={myFavorites} isJoined={isJoined} deleteHandler={deleteHandler} />
+    </Row>
   );
 }

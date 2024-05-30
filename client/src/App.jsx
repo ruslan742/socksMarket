@@ -8,6 +8,7 @@ import SignUpPage from './components/pages/SignUpPage';
 import MeetingsPage from './components/pages/MeetingsPage';
 import ProtectedRoute from './components/hoc/ProtectedRoute';
 import AccountPage from './components/pages/AccountPage';
+import GeneratorPage from './components/pages/GeneratorPage';
 import FavoritesPage from './components/pages/FavoritesPage';
 import BasketPage from './components/pages/BasketPage';
 
@@ -73,6 +74,10 @@ function App() {
         {
           path: '/basket',
           element: <BasketPage user={user} />,
+        },
+        {
+          path: '/generator',
+          element: <GeneratorPage user={user} />,
         },
         {
           path: '/meetings/account',
