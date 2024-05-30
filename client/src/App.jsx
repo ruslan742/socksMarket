@@ -5,9 +5,12 @@ import Layout from './components/Layout';
 import HomePage from './components/pages/HomePage';
 import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
-import MeetingsPage from './components/pages/MeetingsPage';
+import SocksPage from './components/pages/SocksPage';
 import ProtectedRoute from './components/hoc/ProtectedRoute';
 import AccountPage from './components/pages/AccountPage';
+import GeneratorPage from './components/pages/GeneratorPage';
+import FavoritesPage from './components/pages/FavoritesPage';
+import BasketPage from './components/pages/BasketPage';
 
 function App() {
   const [user, setUser] = useState();
@@ -61,11 +64,23 @@ function App() {
           element: <HomePage />,
         },
         {
-          path: '/meetings',
-          element: <MeetingsPage user={user} />,
+          path: '/socks',
+          element: <SocksPage user={user} />,
         },
         {
-          path: '/meetings/account',
+          path: '/favorites',
+          element: <FavoritesPage user={user} />,
+        },
+        {
+          path: '/basket',
+          element: <BasketPage user={user} />,
+        },
+        {
+          path: '/generator',
+          element: <GeneratorPage user={user} />,
+        },
+        {
+          path: '/socks/account',
           element: <ProtectedRoute isAllowed={!!user} redirect="/login"><AccountPage /></ProtectedRoute>,
         },
         {
