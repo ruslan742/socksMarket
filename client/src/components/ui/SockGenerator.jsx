@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 
-function SockGenerator({addToCartHandler,isAdded}) {
+function SockGenerator({addToCartHandler,isAdded, myImages, myPatterns}) {
   const [backgroundColor, setBackgroundColor] = useState('black');
   const [selectedImage, setSelectedImage] = useState();
 
@@ -81,7 +81,7 @@ function SockGenerator({addToCartHandler,isAdded}) {
               marginTop: '10px',
               fontSize: '22px',
               whiteSpace: 'nowrap'
-            }} onClick={addToCartHandler} >
+            }} onClick={() => addToCartHandler({color:backgroundColor,image:selectedImage})} >
               { 'Добавить в корзину'}
             </Button>)}
           </div>
@@ -115,10 +115,33 @@ function SockGenerator({addToCartHandler,isAdded}) {
             padding: '10px',
             borderRadius: '10px'
           }}>
-            {galleryImages.map((image, index) => (
+            {myImages.map((image, index) => (
               <Image
                 key={index}
-                src={image}
+                src={image.name}
+                style={{
+                  width: '100px',
+                  height: 'auto',
+                  margin: '0 10px',
+                  cursor: 'pointer',
+                  border: selectedImage === image ? '2px solid #000' : '2px solid transparent'
+                }}
+                onClick={() => handleImageClick(image)}
+              />
+            ))}
+          </div>
+          <div style={{
+            display: 'flex',
+            overflowX: 'scroll',
+            whiteSpace: 'nowrap',
+            border: '1px solid #ddd',
+            padding: '10px',
+            borderRadius: '10px'
+          }}>
+            {myPatterns.map((image, index) => (
+              <Image
+                key={index}
+                src={image.name}
                 style={{
                   width: '100px',
                   height: 'auto',

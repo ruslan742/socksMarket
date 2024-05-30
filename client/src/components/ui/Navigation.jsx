@@ -11,7 +11,7 @@ export default function Navigation({ user, logoutHandler }) {
       <Container>
         <Navbar.Brand href="/">
           Hello,
-          {user ? user.username : 'friend'}
+          {user ? user.name : 'friend'}
           !
         </Navbar.Brand>
         <Nav className="me-auto">
@@ -19,8 +19,8 @@ export default function Navigation({ user, logoutHandler }) {
           <Nav.Link as={Link} to="/generator">Конструктор носков</Nav.Link>
           {user ? (
             <>
-              <Nav.Link as={Link} to="/meetings">Встречи</Nav.Link>
-              <Nav.Link as={Link} to="/meetings/account">Account</Nav.Link>
+              <Nav.Link as={Link} to="/socks">Встречи</Nav.Link>
+              <Nav.Link as={Link} to="/socks/account">Account</Nav.Link>
               <Nav.Link as={Link} to="/favorites">Favorites</Nav.Link>
               <Nav.Link as={Link} to="/basket">Basket</Nav.Link>
               <Button onClick={logoutHandler}>Logout</Button>

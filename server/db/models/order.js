@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(User, { foreignKey: 'userId' });
       this.belongsTo(Color, { foreignKey: 'colorId' });
       this.belongsTo(Pattern, { foreignKey: 'patternId' });
-      this.BelongsTo(Image, { foreignKey: 'imageId' });
+      this.belongsTo(Image, { foreignKey: 'imageId' });
     }
   }
   Order.init({

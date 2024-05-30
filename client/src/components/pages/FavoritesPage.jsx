@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import axiosInstance from '../../axiosInstance';
-import FavoritesList from '../ui/FavoritesList';
+import FavoritesList from '../ui/FavoriteList';
 
 export default function FavoritesPage() {
   const [myFavorites, setMyFavorites] = useState([]);

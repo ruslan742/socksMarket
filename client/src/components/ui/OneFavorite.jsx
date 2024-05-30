@@ -11,7 +11,7 @@ export default function OneFavorite({ Favorite, deleteHandler, user, joinHandler
         <Card.Text>
           Адрес:
           {' '}
-          {Favorite.meetingaddres}
+          {Favorite.sockaddres}
         </Card.Text>
         <Card.Text>
           Количество участников:
