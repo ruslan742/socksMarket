@@ -11,6 +11,7 @@ import AccountPage from './components/pages/AccountPage';
 import GeneratorPage from './components/pages/GeneratorPage';
 import FavoritesPage from './components/pages/FavoritesPage';
 import BasketPage from './components/pages/BasketPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [user, setUser] = useState();
