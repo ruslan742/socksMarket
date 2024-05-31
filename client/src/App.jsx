@@ -5,7 +5,7 @@ import Layout from './components/Layout';
 import HomePage from './components/pages/HomePage';
 import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
-import MeetingsPage from './components/pages/MeetingsPage';
+import SocksPage from './components/pages/SocksPage';
 import ProtectedRoute from './components/hoc/ProtectedRoute';
 import AccountPage from './components/pages/AccountPage';
 import GeneratorPage from './components/pages/GeneratorPage';
@@ -65,8 +65,8 @@ function App() {
           element: <HomePage />,
         },
         {
-          path: '/meetings',
-          element: <MeetingsPage user={user} />,
+          path: '/socks',
+          element: <SocksPage user={user} />,
         },
         {
           path: '/favorites',
@@ -81,7 +81,7 @@ function App() {
           element: <GeneratorPage user={user} />,
         },
         {
-          path: '/meetings/account',
+          path: '/socks/account',
           element: <ProtectedRoute isAllowed={!!user} redirect="/login"><AccountPage /></ProtectedRoute>,
         },
         {

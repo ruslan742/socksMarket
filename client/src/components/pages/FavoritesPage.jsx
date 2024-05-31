@@ -3,7 +3,6 @@ import { Row } from 'react-bootstrap';
 import axiosInstance from '../../axiosInstance';
 import FavoritesList from '../ui/FavoriteList';
 
-
 export default function FavoritesPage() {
   return (
     <div className="card">

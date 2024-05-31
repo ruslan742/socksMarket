@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import SockGenerator from '../ui/SockGenerator';
+import axiosInstance from '../../axiosInstance';
 
 
 export default function GeneratorPage() {
+    const [myImages, setMyImages] = useState([]);
+    const [myPatterns, setMyPatterns] = useState([]);
+    useEffect(() => {
+        axiosInstance("/socks/account/image").then(({ data }) => setMyImages(data));
+      }, []);
+      useEffect(() => {
+        axiosInstance("/socks/account/pattern").then(({ data }) => setMyPatterns(data));
+      }, []);
     const [isAdded, setisAdded] = useState(false);
-    const addToCartHandler = async (e) => {
+    const addToCartHandler = async (obj) => {
        // e.preventDefault();
-       console.log(isAdded)
+       console.log(obj)
+       const response = await axiosInstance.post(`/socks/account/basket/add`, obj);
        // const formData = Object.fromEntries(new FormData(e.target));
-        //const { data } = await axiosInstance.post('/meetings', formData);
+        //const { data } = await axiosInstance.post('/socks', formData);
         setisAdded((prev) =>(prev===false&& true));
         console.log(isAdded)
       };
@@ -19,7 +29,7 @@ export default function GeneratorPage() {
       <h1>Выберите дизайн</h1>
     </Row>
         <Row className='mt-3'>
-        <SockGenerator addToCartHandler={addToCartHandler} isAdded={isAdded} />
+        <SockGenerator addToCartHandler={addToCartHandler} isAdded={isAdded} myImages={myImages} myPatterns={myPatterns} />
       </Row>
       </>
   );

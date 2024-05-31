@@ -11,7 +11,7 @@ export default function Navigation({ user, logoutHandler }) {
       <Container>
         <Navbar.Brand href="/">
           Hello,
-          {user ? user.username : 'friend'}
+          {user ? user.name : 'friend'}
           !
         </Navbar.Brand>
         <Nav className="me-auto">

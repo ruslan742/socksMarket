@@ -9,7 +9,7 @@ export default function FavoriteForm({ submitHandler }) {
         <Form.Control name="price" type="number" placeholder="The Best Socks in Favorites" />
       </Form.Group>
       <Form.Group>
-        <Form.Control name="meetingaddres" type="text" placeholder="Meeting's addres" />
+        <Form.Control name="sockaddres" type="text" placeholder="Sock's addres" />
       </Form.Group>
       <Button variant="primary" type="submit">
         Добавить в корзину
