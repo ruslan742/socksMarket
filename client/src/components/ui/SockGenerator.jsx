@@ -100,7 +100,7 @@ function SockGenerator({ addToCartHandler, isAdded, myImages, myPatterns }) {
                 width: 'auto',
                 fontSize: '22px',
                 whiteSpace: 'nowrap'
-              }} onClick={() => addToCartHandler({ color: backgroundColor||'black', image: (selectedImage||''), pattern: (selectedPattern||'') })}>
+              }} onClick={() => addToCartHandler({ color: backgroundColor||'black', image: (selectedImage||null), pattern: (selectedPattern||null) })}>
                 {'Добавить в корзину'}
               </Button>)}
             </div>
