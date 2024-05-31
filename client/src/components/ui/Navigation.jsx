@@ -21,8 +21,8 @@ export default function Navigation({ user, logoutHandler }) {
             <>
               <Nav.Link as={Link} to="/meetings">Встречи</Nav.Link>
               <Nav.Link as={Link} to="/meetings/account">Account</Nav.Link>
-              <Nav.Link as={Link} to="/favorites">Favorites</Nav.Link>
-              <Nav.Link as={Link} to="/basket">Basket</Nav.Link>
+              <Nav.Link as={Link} to="/favorites">Избранное</Nav.Link>
+              <Nav.Link as={Link} to="/basket">Корзина</Nav.Link>
               <Button onClick={logoutHandler}>Logout</Button>
             </>
           ) : (

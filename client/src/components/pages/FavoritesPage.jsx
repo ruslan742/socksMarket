@@ -1,30 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import axiosInstance from '../../axiosInstance';
-import FavoritesList from '../ui/FavoritesList';
+import FavoritesList from '../ui/FavoriteList';
+
 
 export default function FavoritesPage() {
-  const [myFavorites, setMyFavorites] = useState([]);
-const isJoined=true
-  useEffect(() => {
-    axiosInstance('/favorites/account').then(({ data }) => setMyFavorites(data));
-  }, []);
-
-  const deleteHandler = async (id) => {
-    try {
-      console.log('eee',id)
-      const response = await axiosInstance.delete(`/favorites/account/${id}/delete`);
-      if (response.status === 200) {
-        setMyFavorites((prev) => prev.filter((el) => el.id !== id));
-      }
-    } catch (error) {
-      alert(error.response.data.message);
-    }
-  }
-
   return (
-    <Row className="justify-content-md-center">
-      <FavoritesList favorites={myFavorites} isJoined={isJoined} deleteHandler={deleteHandler} />
-    </Row>
+    <div className="card">
+      <img
+        src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
+        className="card-img-top"
+        alt="Fissure in Sandstone"
+      />
+      <div className="card-body">
+        <h5 className="card-title">Card title</h5>
+        <p className="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <a href="#!" className="btn btn-primary" data-mdb-ripple-init>
+          Button
+        </a>
+      </div>
+    </div>
   );
 }
