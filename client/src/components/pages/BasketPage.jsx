@@ -7,11 +7,9 @@ import {
 import { WhatsappIcon, EmailIcon, TelegramIcon } from "react-share";
 
 const ShoppingCart = () => {
-  const [quantity1, setQuantity1] = useState(1);
-  const [quantity2, setQuantity2] = useState(1);
-  const [quantity3, setQuantity3] = useState(1);
+  const [quantity, setQuantity] = useState(1);
 
-  const handleQuantityChange = (setQuantity, value) => {
+  const handleQuantityChange = (value) => {
     setQuantity(value);
   };
 
@@ -52,7 +50,7 @@ const ShoppingCart = () => {
                           <button
                             className="btn btn-link px-2"
                             onClick={() =>
-                              handleQuantityChange(setQuantity1, quantity1 - 1)
+                              handleQuantityChange( quantity - 1)
                             }
                           >
                             <i className="fas fa-minus"></i>
@@ -61,14 +59,14 @@ const ShoppingCart = () => {
                             id="form1"
                             min="0"
                             name="quantity"
-                            value={quantity1}
+                            value={quantity}
                             type="number"
                             className="form-control form-control-sm"
                           />
                           <button
                             className="btn btn-link px-2"
                             onClick={() =>
-                              handleQuantityChange(setQuantity1, quantity1 + 1)
+                              handleQuantityChange( quantity + 1)
                             }
                           >
                             <i className="fas fa-plus"></i>
@@ -90,7 +88,7 @@ const ShoppingCart = () => {
 
                       <div className="pt-5">
                         <h6 className="mb-0">
-                          <a href="#!" className="text-body">
+                          <a href="/generator" className="text-body">
                             <i className="fas fa-long-arrow-alt-left me-2"></i>
                             Вернуться к покупкам
                           </a>
